@@ -46,14 +46,37 @@ body, html {
     height: 2px; /* Height of the underline */
     background-color: white; /* Color of the underline */
     transform: scaleX(0); /* Start with a scale of 0 */
-    transition: transform 0.3s ease; /* Smooth transition for scale */
+    transition: transform 0.4s ease; /* Smooth transition for scale */
 }
 
 .underline-button:hover::after {
     transform: scaleX(1); /* Scale to full width on hover */
 }
 
-.content {
+.main-header .dropdown-content {
+    display: none; /* Hide dropdown by default */
+    position: absolute;
+    background-color: #fff; /* Dropdown background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    margin-top: 10px;
+}
+
+.main-header .dropdown:hover .dropdown-content {
+    display: block; /* Show dropdown on hover */
+}
+
+.main-header .dropdown-content a {
+    display: block; /* Make dropdown items block level */
+    padding: 15px;
+    color: #333; /* Text color */
+}
+
+.main-header .dropdown-content a:hover {
+    background-color: #f0f0f0; /* Highlight on hover */
+}
+
+.main-content {
     padding: 20px;
     text-align: center;
 }
