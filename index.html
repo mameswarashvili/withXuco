@@ -3,18 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Random Box</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li>მთავარი</li>
-                <li>ყუთები</li>
-                <li>რეგისტრაცია</li>
-            </ul>
-        </nav>        
+    <!-- Main Content -->
+    <header class="main-header">
+        <ul>
+            <li>მთავარი</li>
+            <li>ჩვენს შესახებ</li>
+            <li>ყუთები</li>
+            <li>რეგისტრაცია</li>
+            <li>ანგარიში</li>
+        </ul>
     </header>
+
+    <div class="content">
+        
+    </div>
+
+    <!-- Full-page Overlay -->
+    <div class="overlay" id="overlay">
+        <button class="close-button" id="close-button">×</button>
+        <div class="overlay-content">
+            <h1>არ გაქვს Account?</h1>
+            <p>დარეგისტრირდი ახლავე და მიიღე 3 Box საჩუქრად</p>
+            <a href="#get-started" class="cta-button">რეგისტრაცია</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
