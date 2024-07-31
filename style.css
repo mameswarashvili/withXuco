@@ -28,6 +28,31 @@ body, html {
     padding: 10px 15px;
 }
 
+.underline-button {
+    position: relative;
+    text-decoration: none; /* Remove default underline */
+    color: white; /* Text color */
+    font-size: 1rem;
+    padding: 10px 20px;
+    overflow: hidden; /* Hide the pseudo-element when not hovered */
+}
+
+.underline-button::after {
+    content: "";
+    position: absolute;
+    left: 0; /* Start from the left */
+    bottom: 0; /* Position it at the bottom of the button */
+    width: 100%; /* Full width */
+    height: 2px; /* Height of the underline */
+    background-color: white; /* Color of the underline */
+    transform: scaleX(0); /* Start with a scale of 0 */
+    transition: transform 0.3s ease; /* Smooth transition for scale */
+}
+
+.underline-button:hover::after {
+    transform: scaleX(1); /* Scale to full width on hover */
+}
+
 .content {
     padding: 20px;
     text-align: center;
@@ -71,6 +96,7 @@ p {
     text-decoration: none;
     font-size: 1.2rem;
     transition: background-color 0.3s ease;
+    margin: 5px;
 }
 
 .cta-button:hover {
