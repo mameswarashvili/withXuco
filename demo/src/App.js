@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import LoginCheck from './LoginCheck';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <nav>
+            <ul>
+              <li><a href="#">მთავარი</a></li>  
+              <li><a href="#">ყუთები</a></li>
+              <li><a href="#"><i class="fa-solid fa-user">&nbsp;</i>შესვლა</a></li>
+            </ul>
+          </nav>
       </header>
+      <div>
+        <h1>Random Box</h1>
+        <LoginCheck />
+      </div>
     </div>
   );
 }
