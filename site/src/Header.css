@@ -1,0 +1,207 @@
+/* Header.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Overall header styling */
+.header {
+  width: 100%;
+  background: linear-gradient(135deg, #333, #555); /* Darker gradient background */
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  font-family: 'Roboto', sans-serif; /* Modern font */
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px; /* Increased font size */
+  font-weight: 500; /* Medium weight */
+  transition: color 0.3s; /* Animation for color change */
+}
+
+.nav a:hover {
+  color: #009b8c;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 4px; /* Rounded corners */
+  padding: 5px;
+}
+
+.search-bar input {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-icon {
+  font-size: 20px;
+  color: #333;
+  margin-left: 5px;
+}
+
+.user-menu-container {
+  position: relative;
+}
+
+.user-menu-button {
+  display: flex;
+  align-items: center;
+  background: #fff; /* White background for button */
+  color: #333; /* Dark text color */
+  border: none; /* Remove default button border */
+  cursor: pointer;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 500; /* Medium weight */
+  border-radius: 4px; /* Rounded corners */
+  transition: color 0.3s; /* Animation for color change */
+}
+
+.user-menu-button:hover {
+  color: #009b8c; /* Teal color on hover */
+}
+
+.user-icon {
+  font-size: 20px;
+  margin-right: 8px; /* Space between icon and text */
+}
+
+.user-text {
+  margin: 0; /* Ensure no margin */
+}
+
+.user-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: linear-gradient(135deg, #333, #555); /* Match header background gradient */
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  min-width: 150px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  transition: opacity 0.3s, visibility 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 4px; /* Rounded corners */
+}
+
+.user-menu li {
+  margin: 0;
+}
+
+.user-menu a {
+  color: #fff; /* Text color matching the header */
+  text-decoration: none;
+  display: block;
+  padding: 10px 15px;
+  font-size: 16px; /* Consistent font size */
+}
+
+.user-menu a:hover {
+  color: #009b8c; /* Teal color on hover */
+}
+
+.user-menu-container:hover .user-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.cta-button a {
+  display: block;
+  background: #00bfae; /* Teal background */
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px;
+  font-weight: 500; /* Medium weight */
+  transition: background-color 0.3s, color 0.3s; /* Animation */
+}
+
+.cta-button a:hover {
+  background: #009b8c; /* Darker teal on hover */
+  color: #fff;
+}
+
+.notification-icon {
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.notification-icon:hover {
+  color: #009b8c; /* Teal color on hover */
+}
+
+.burger {
+  display: flex;
+  align-items: center;
+}
+
+.burger-icon {
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.burger-icon:hover {
+  color: #009b8c; /* Teal color on hover */
+}
+
+.cart-icon {
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.cart-icon:hover {
+  color: #009b8c; /* Teal color on hover */
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none; /* Hide nav links on smaller screens */
+  }
+
+  .burger {
+    display: flex;
+    align-items: center;
+  }
+}
