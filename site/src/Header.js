@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
-import { FaUser, FaBars, FaSearch, FaBell, FaShoppingCart } from 'react-icons/fa'; // Import FaShoppingCart
+import { FaUser, FaBars, FaSearch, FaBell, FaShoppingCart } from 'react-icons/fa';
 import './Header.css';
 
 const Header = () => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([
+    { id: 1, name: 'Item 1' },
+    { id: 2, name: 'Item 2' }
+  ]);
 
   const toggleUserMenu = () => {
     setIsUserMenuOpen(!isUserMenuOpen);
+  };
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
+  const removeItem = (id) => {
+    setCartItems(cartItems.filter(item => item.id !== id));
   };
 
   return (
@@ -37,8 +50,26 @@ const Header = () => {
           <li>
             <FaBell className="notification-icon" />
           </li>
-          <li>
-            <FaShoppingCart className="cart-icon" /> {/* Added cart icon */}
+          <li className="cart-button">
+            <button onClick={toggleCart}>
+              <FaShoppingCart className="cart-icon" />
+              {cartItems.length > 0 && (
+                <span className="cart-count">{cartItems.length}</span>
+              )}
+            </button>
+            {isCartOpen && (
+              <div className="cart-sidebar">
+                <h2>Cart</h2>
+                <ul>
+                  {cartItems.map(item => (
+                    <li key={item.id}>
+                      <span>{item.name}</span>
+                      <button onClick={() => removeItem(item.id)}>Remove</button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </li>
         </ul>
       </nav>

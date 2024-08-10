@@ -1,7 +1,7 @@
-// src/App.js
 import React, { useState } from 'react';
 import './App.css';
 import Header from './Header';
+import Slider from './Slider'; // Import the Slider component
 
 function App() {
   const [isVisible, setIsVisible] = useState(true);
@@ -27,6 +27,12 @@ function App() {
       )}
       <div className="content">
         <Header />
+        <div className="slider-container left">
+          <Slider />
+        </div>
+        <div className="slider-container right">
+          <Slider />
+        </div>
       </div>
     </div>
   );
