@@ -1,0 +1,78 @@
+/* Slider Container */
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Navigation Icons */
+.nav-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.nav-icon.prev {
+  left: 10px;
+}
+
+.nav-icon.next {
+  right: 10px;
+}
+
+/* Slider */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Smooth transition */
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Swipe Animations */
+.slides.next {
+  animation: slideNext 0.5s ease-in-out;
+}
+
+.slides.prev {
+  animation: slidePrev 0.5s ease-in-out;
+}
+
+@keyframes slideNext {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slidePrev {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
