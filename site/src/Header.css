@@ -1,6 +1,4 @@
-/* Header.css */
-
-/* Overall header styling */
+/* Header */
 .header {
   width: 100%;
   background: linear-gradient(135deg, #333, #555); /* Darker gradient background */
@@ -13,6 +11,7 @@
   font-family: 'Roboto', sans-serif; /* Modern font */
 }
 
+/* Nav and Burger Menu */
 .nav {
   display: flex;
   align-items: center;
@@ -173,8 +172,7 @@
 }
 
 .burger {
-  display: flex;
-  align-items: center;
+  display: none; /* Hidden by default, shown on small screens */
 }
 
 .burger-icon {
@@ -187,6 +185,7 @@
 .burger-icon:hover {
   color: #009b8c; /* Teal color on hover */
 }
+
 /* Burger Menu Overlay */
 .burger-menu-overlay {
   display: none;
@@ -213,6 +212,18 @@
   padding: 30px;
   border-radius: 8px;
   text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center items horizontally */
+  transform: translateX(-100%); /* Start hidden */
+  transition: transform 0.3s ease; /* Slide in animation */
+}
+
+.burger-menu-overlay.open .burger-menu-content {
+  transform: translateX(0); /* Slide in */
 }
 
 .burger-menu-content a {
@@ -220,12 +231,31 @@
   color: #fff;
   text-decoration: none;
   font-size: 24px;
-  margin: 15px 0;
-  transition: color 0.3s;
+  margin: 15px 0; /* Added margin between links */
+  padding: 10px 20px; /* Added padding for the border */
+  border: 2px solid #555; /* Border to separate links */
+  border-radius: 4px; /* Rounded corners */
+  transition: color 0.3s, border-color 0.3s;
+  opacity: 0; /* Initially hidden for animation */
+  transform: translateX(-30px); /* Slide in from left */
+  animation: slideIn 0.3s forwards; /* Animation for links */
+}
+
+.burger-menu-content a:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.burger-menu-content a:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.burger-menu-content a:nth-child(3) {
+  animation-delay: 0.3s;
 }
 
 .burger-menu-content a:hover {
   color: #009b8c; /* Teal color on hover */
+  border-color: #009b8c; /* Change border color on hover */
 }
 
 .burger-menu-content button {
@@ -240,25 +270,17 @@
 .burger-menu-content button:hover {
   color: #009b8c; /* Teal color on hover */
 }
-
-
-.cart-button {
-  background: none;
-  border: none;
-  position: relative;
-}
-
 /* Cart Sidebar */
-.cart-icon {
-  font-size: 24px;
-  color: black;
-  cursor: pointer;
-}
-
 .cart-button {
   background: none; /* Ensure the button itself has no background */
   border: none;
   position: relative;
+}
+
+.cart-icon {
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
 }
 
 .cart-count {
@@ -274,15 +296,16 @@
 
 .cart-sidebar {
   position: absolute;
-  top: 53px;
-  left: 280px;
+  top: 53px; /* Adjusted from header */
+  right: 40px; /* Align to the right of the viewport */
   width: 250px;
   background: linear-gradient(135deg, #333, #555); /* Match header background gradient */
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   padding: 20px;
   z-index: 1000;
-  transform: translateX(-100%); /* Start hidden */
+  transform: translateX(100%); /* Start hidden */
   transition: transform 0.3s ease; /* Smooth slide animation */
+  
 }
 
 .cart-sidebar.open {
@@ -304,6 +327,7 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
+  border-bottom: 1px solid #666; /* Border between items */
 }
 
 .cart-sidebar button {
@@ -320,12 +344,30 @@
 
 .cart-close-button {
   position: absolute;
-  right: 30px;
-  top: 25px;
+  right: 15px;
+  top: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+  transition: color 0.3s;
 }
 
 .cart-close-button:hover {
-  color: #000; /* Adjust hover color as needed */
+  color: #009b8c; /* Teal color on hover */
+}
+
+/* Keyframes for animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* Responsive Styles */
@@ -335,7 +377,11 @@
   }
 
   .burger {
-    display: flex;
+    display: flex; /* Show burger icon on small screens */
     align-items: center;
+  }
+
+  .cart-button {
+    display: none; /* Hide cart button in burger menu on small screens */
   }
 }

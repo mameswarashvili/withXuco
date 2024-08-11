@@ -41,7 +41,7 @@ const Header = () => {
       <nav className="nav">
         <ul className="nav-links">
           <li><a href="#home">მთავარი</a></li>
-          <li><a href="#boxes">ყუთები</a></li>
+          <li><a href="#boxes">პროდუქცია</a></li>
           <li className="search-bar">
             <input type="text" placeholder="ძებნა..." />
             <FaSearch className="search-icon" />
@@ -97,7 +97,7 @@ const Header = () => {
         <div className="burger-menu-overlay open">
           <div className="burger-menu-content">
             <a href="#home" onClick={toggleBurgerMenu}>მთავარი</a>
-            <a href="#boxes" onClick={toggleBurgerMenu}>ყუთები</a>
+            <a href="#boxes" onClick={toggleBurgerMenu}>პროდუქცია</a>
             <a href="#contact" onClick={toggleBurgerMenu}>საკონტაქტო</a>
             <button onClick={toggleBurgerMenu}>დახურვა</button>
           </div>
