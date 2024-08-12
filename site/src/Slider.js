@@ -7,23 +7,29 @@ import perfumeImage from './images/perfume.jpg';
 import headsetImage from './images/headset.jpg';
 import glassesImage from './images/glasses.jpg';
 import airpodsImage from './images/airpods.jpg';
-import jordanShoes from './images/jordan.jpg'
+import jordanImage from './images/jordan.jpg';
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [transition, setTransition] = useState('');
 
-  // Array of images
-  const images = [jordanShoes, perfumeImage, headsetImage, glassesImage, airpodsImage];
+  // Array of slide data (image and text)
+  const slides = [
+    { image: jordanImage, title: 'Air Jordan', price: '$199' },
+    { image: perfumeImage, title: 'Perfume', price: '$89' },
+    { image: headsetImage, title: 'Headset', price: '$129' },
+    { image: glassesImage, title: 'მზის სათვალე', text: 'მზის სათვალე G.PIRALLI – 2372-C1 ბუდით, მზის სათვალე G.PIRALLI – 2372-C2 ბუდით, მზის სათვალე G.PIRALLI – 2372-C3 ბუდით, მზის სათვალე G.PIRALLI – 2372-C4 ბუდით', price: '149ლ' },
+    { image: airpodsImage, title: 'AirPods', price: '$249' },
+  ];
 
   const goToPrevious = () => {
     setTransition('prev');
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
   };
 
   const goToNext = () => {
     setTransition('next');
-    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
   };
 
   return (
@@ -36,12 +42,21 @@ const Slider = () => {
           className={`slides ${transition}`}
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {images.map((image, index) => (
+          {slides.map((slide, index) => (
             <div
               key={index}
               className="slide"
-              style={{ backgroundImage: `url(${image})` }}
-            ></div>
+              style={{ backgroundImage: `url(${slide.image})` }}
+            >
+              <div className="slide-content">
+                <div className="image-container" style={{ backgroundImage: `url(${slide.image})` }}></div>
+                <div className="text-container">
+                  <h2>{slide.title}</h2>
+                  <h1>{slide.price}</h1>
+                  <p>{slide.text}</p>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
