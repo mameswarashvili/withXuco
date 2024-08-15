@@ -15,11 +15,11 @@ const Slider = () => {
 
   // Array of slide data (image and text)
   const slides = [
-    { image: jordanImage, title: 'Air Jordan', price: '$199' },
-    { image: perfumeImage, title: 'Perfume', price: '$89' },
-    { image: headsetImage, title: 'Headset', price: '$129' },
+    { image: jordanImage, title: 'Air Jordan', price: '199ლ', text: 'სპორტული ფეხსაცმელი ცნობილი კალათბურთელი მაიკლ ჯორდანის' },
+    { image: perfumeImage, title: 'Dior Sauvage', price: '89ლ', text: 'მამაკაცის სუნამო Dior Sauvage – სუნამო ქარიზმატული სურნელით. სავაჟის ახალი კონცენტრირებული ინტერპრეტაცია, რომელიც აერთიანებს გრილ და თბილ აღმოსავლურ ნოტებს.' },
+    { image: headsetImage, title: 'Headset', price: '129ლ' },
     { image: glassesImage, title: 'მზის სათვალე', text: 'მზის სათვალე G.PIRALLI – 2372-C1 ბუდით, მზის სათვალე G.PIRALLI – 2372-C2 ბუდით, მზის სათვალე G.PIRALLI – 2372-C3 ბუდით, მზის სათვალე G.PIRALLI – 2372-C4 ბუდით', price: '149ლ' },
-    { image: airpodsImage, title: 'AirPods', price: '$249' },
+    { image: airpodsImage, title: 'AirPods', price: '249ლ' },
   ];
 
   const goToPrevious = () => {
