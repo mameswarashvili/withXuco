@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './Slider.css';
 
+
 // Import images
 import perfumeImage from './images/perfume.jpg';
 import headsetImage from './images/headset.jpg';
@@ -13,6 +14,7 @@ const Slider = ({ addToCart }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [transition, setTransition] = useState('');
   const [quantity, setQuantity] = useState(1);
+  const [cartAnimation, setCartAnimation] = useState(false);
 
   // Array of slide data (image, title, price)
   const slides = [
@@ -38,8 +40,12 @@ const Slider = ({ addToCart }) => {
   };
 
   const handleAddToCart = (item) => {
+    setCartAnimation(true);
+    setTimeout(() => {
+      setCartAnimation(false);
+    }, 1000); // Animation duration
+
     addToCart({ ...item, quantity });
-    alert(`Added ${quantity} ${item.title}(s) to the cart.`);
   };
 
   return (
@@ -47,7 +53,7 @@ const Slider = ({ addToCart }) => {
       <button className="nav-icon prev" onClick={goToPrevious}>
         <FaChevronLeft />
       </button>
-      <div className="slider">
+      <div className={`slider ${cartAnimation ? 'cart-animation' : ''}`}>
         <div
           className={`slides ${transition}`}
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
