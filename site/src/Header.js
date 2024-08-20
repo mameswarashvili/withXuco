@@ -4,21 +4,16 @@ import SignUp from './SignUp';
 import LogIn from './LogIn';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ cartItems, removeItem }) => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSignUpVisible, setIsSignUpVisible] = useState(false);
   const [isLogInVisible, setIsLogInVisible] = useState(false);
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([
-    { id: 1, name: 'ყუთი 1' },
-    { id: 2, name: 'ყუთი 2' }
-  ]);
 
   const toggleUserMenu = () => setIsUserMenuOpen(!isUserMenuOpen);
   const toggleCart = () => setIsCartOpen(!isCartOpen);
   const toggleBurgerMenu = () => setIsBurgerMenuOpen(!isBurgerMenuOpen);
-  const removeItem = (id) => setCartItems(cartItems.filter(item => item.id !== id));
   const closeCart = () => setIsCartOpen(false);
 
   const handleSignUpClick = () => {
@@ -80,7 +75,7 @@ const Header = () => {
                 <ul>
                   {cartItems.map(item => (
                     <li key={item.id} className="slide-out">
-                      <span>{item.name}</span>
+                      <span>{item.title}</span>
                       <button onClick={() => removeItem(item.id)}>წაშლა</button>
                     </li>
                   ))}
