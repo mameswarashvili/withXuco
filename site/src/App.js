@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import Slider from './Slider';
+import Notification from './Notification';
 import './App.css';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [notificationMessage, setNotificationMessage] = useState('');
 
-  const addToCart = (item) => {
-    setCartItems((prevItems) => [...prevItems, item]);
+  const addToCart = (product) => {
+    setCartItems((prevItems) => [...prevItems, product]);
+    setNotificationMessage(`Added ${product.title} to cart!`);
+    setTimeout(() => {
+      setNotificationMessage('');
+    }, 3000); // Hide notification after 3 seconds
   };
 
   const removeItem = (itemId) => {
@@ -19,6 +25,10 @@ function App() {
       <Header cartItems={cartItems} removeItem={removeItem} />
       <div className="content">
         <Slider addToCart={addToCart} />
+      </div>
+      <div className={`notification ${notificationMessage ? 'show' : ''}`}>
+        <span className="notification-text">{notificationMessage}</span>
+        <button className="notification-close" onClick={() => setNotificationMessage('')}>×</button>
       </div>
     </div>
   );
