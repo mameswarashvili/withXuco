@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './Slider.css';
 
-
 // Import images
 import perfumeImage from './images/perfume.jpg';
 import headsetImage from './images/headset.jpg';
@@ -12,7 +11,6 @@ import jordanImage from './images/jordan.jpg';
 
 const Slider = ({ addToCart }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [transition, setTransition] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [cartAnimation, setCartAnimation] = useState(false);
 
@@ -26,12 +24,10 @@ const Slider = ({ addToCart }) => {
   ];
 
   const goToPrevious = () => {
-    setTransition('prev');
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
   };
 
   const goToNext = () => {
-    setTransition('next');
     setCurrentIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
   };
 
@@ -43,7 +39,7 @@ const Slider = ({ addToCart }) => {
     setCartAnimation(true);
     setTimeout(() => {
       setCartAnimation(false);
-    }, 1000); // Animation duration
+    }, 800); // Animation duration
 
     addToCart({ ...item, quantity });
   };
@@ -55,7 +51,7 @@ const Slider = ({ addToCart }) => {
       </button>
       <div className={`slider ${cartAnimation ? 'cart-animation' : ''}`}>
         <div
-          className={`slides ${transition}`}
+          className="slides"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {slides.map((slide, index) => (

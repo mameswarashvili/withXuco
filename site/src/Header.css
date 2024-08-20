@@ -271,9 +271,10 @@
 .burger-menu-content button:hover {
   color: #009b8c; /* Teal color on hover */
 }
+
 /* Cart Sidebar */
 .cart-button {
-  background: none; /* Ensure the button itself has no background */
+  background: none;
   border: none;
   position: relative;
 }
@@ -298,24 +299,25 @@
 .cart-sidebar {
   position: absolute;
   top: 53px; /* Adjusted from header */
-  right: 40px; /* Align to the right of the viewport */
-  width: 250px;
-  background: linear-gradient(135deg, #333, #555); /* Match header background gradient */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  right: 20px; /* Align to the right of the viewport */
+  width: 300px; /* Slightly wider */
+  background: #444; /* Darker background */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
   padding: 20px;
   z-index: 1000;
-  transform: translateX(100%); /* Start hidden */
-  transition: transform 0.3s ease; /* Smooth slide animation */
-  
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  border-radius: 8px; /* Rounded corners */
 }
 
 .cart-sidebar.open {
-  transform: translateX(0); /* Slide in */
+  transform: translateX(0);
 }
 
 .cart-sidebar h2 {
   margin-top: 0;
-  font-size: 20px;
+  font-size: 22px; /* Larger title */
+  color: #fff;
 }
 
 .cart-sidebar ul {
@@ -326,21 +328,38 @@
 
 .cart-sidebar li {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 10px 0;
-  border-bottom: 1px solid #666; /* Border between items */
+  border-bottom: 1px solid #666;
+  color: #fff; /* Text color matching the sidebar */
+}
+
+.cart-sidebar img {
+  width: 50px; /* Placeholder image size */
+  height: 50px;
+  object-fit: cover; /* Ensure the image covers the space */
+  border-radius: 4px; /* Rounded corners for image */
+}
+
+.cart-sidebar span {
+  flex: 1;
+  margin-left: 10px;
 }
 
 .cart-sidebar button {
-  background: none;
+  background: #e74c3c; /* Red background for delete button */
   border: none;
-  color: red;
-  cursor: pointer;
+  color: #fff;
   font-size: 14px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
 .cart-sidebar button:hover {
-  text-decoration: underline;
+  background-color: #c0392b; /* Darker red on hover */
 }
 
 .cart-close-button {
@@ -358,6 +377,27 @@
 .cart-close-button:hover {
   color: #009b8c; /* Teal color on hover */
 }
+
+/* Checkout Button */
+.cart-checkout-button {
+  background: #00bfae; /* Teal background */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+}
+
+.cart-checkout-button:hover {
+  background: #009b8c; /* Darker teal on hover */
+}
+
 
 /* Keyframes for animation */
 @keyframes slideIn {
