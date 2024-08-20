@@ -9,17 +9,18 @@ import glassesImage from './images/glasses.jpg';
 import airpodsImage from './images/airpods.jpg';
 import jordanImage from './images/jordan.jpg';
 
-const Slider = () => {
+const Slider = ({ addToCart }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [transition, setTransition] = useState('');
+  const [quantity, setQuantity] = useState(1);
 
-  // Array of slide data (image and text)
+  // Array of slide data (image, title, price)
   const slides = [
-    { image: jordanImage, title: 'Air Jordan', price: '199ლ', text: 'სპორტული ფეხსაცმელი ცნობილი კალათბურთელი მაიკლ ჯორდანის' },
-    { image: perfumeImage, title: 'Dior Sauvage', price: '89ლ', text: 'მამაკაცის სუნამო Dior Sauvage – სუნამო ქარიზმატული სურნელით. სავაჟის ახალი კონცენტრირებული ინტერპრეტაცია, რომელიც აერთიანებს გრილ და თბილ აღმოსავლურ ნოტებს.' },
-    { image: headsetImage, title: 'Headset', price: '129ლ' },
-    { image: glassesImage, title: 'მზის სათვალე', text: 'მზის სათვალე G.PIRALLI – 2372-C1 ბუდით, მზის სათვალე G.PIRALLI – 2372-C2 ბუდით, მზის სათვალე G.PIRALLI – 2372-C3 ბუდით, მზის სათვალე G.PIRALLI – 2372-C4 ბუდით', price: '149ლ' },
-    { image: airpodsImage, title: 'AirPods', price: '249ლ' },
+    { image: jordanImage, title: 'Air Jordan', price: '199ლ', id: 1 },
+    { image: perfumeImage, title: 'Dior Sauvage', price: '89ლ', id: 2 },
+    { image: headsetImage, title: 'Headset', price: '129ლ', id: 3 },
+    { image: glassesImage, title: 'მზის სათვალე', price: '149ლ', id: 4 },
+    { image: airpodsImage, title: 'AirPods', price: '249ლ', id: 5 }
   ];
 
   const goToPrevious = () => {
@@ -30,6 +31,15 @@ const Slider = () => {
   const goToNext = () => {
     setTransition('next');
     setCurrentIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
+  };
+
+  const handleQuantityChange = (event) => {
+    setQuantity(Number(event.target.value));
+  };
+
+  const handleAddToCart = (item) => {
+    addToCart({ ...item, quantity });
+    alert(`Added ${quantity} ${item.title}(s) to the cart.`);
   };
 
   return (
@@ -48,12 +58,22 @@ const Slider = () => {
               className="slide"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
-              <div className="slide-content">
-                <div className="image-container" style={{ backgroundImage: `url(${slide.image})` }}></div>
-                <div className="text-container">
-                  <h2>{slide.title}</h2>
-                  <h1>{slide.price}</h1>
-                  <p>{slide.text}</p>
+              <div className="overlay">
+                <div className="product-info">
+                  <div className="product-image" style={{ backgroundImage: `url(${slide.image})` }}></div>
+                  <div className="product-details">
+                    <h2>{slide.title}</h2>
+                    <h3>{slide.price}</h3>
+                    <div className="cart-controls">
+                      <input
+                        type="number"
+                        value={quantity}
+                        min="1"
+                        onChange={handleQuantityChange}
+                      />
+                      <button onClick={() => handleAddToCart(slide)}>Add to Cart</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
