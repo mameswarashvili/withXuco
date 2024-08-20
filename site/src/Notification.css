@@ -1,0 +1,36 @@
+/* Notification.css */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #00bfae; /* Teal background */
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px); /* Initial position */
+  transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
+  z-index: 2000; /* Ensure it’s above other elements */
+}
+
+.notification.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* Final position */
+}
+
+.notification-text {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.notification-close {
+  margin-left: 15px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
