@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from './Header';
 import Slider from './Slider';
 import Notification from './Notification';
-import Content from './Content.js'; // Import the new component
+import RightSlider from './RightSlider.js'; // Import the new component
 import './App.css';
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
       <Header cartItems={cartItems} removeItem={removeItem} />
       <div className="content">
         <Slider addToCart={addToCart} />
-        <Content /> {/* Add the new component here */}
+        <RightSlider /> {/* Add the new component here */}
       </div>
       <div className={`notification ${notificationMessage ? 'show' : ''}`}>
         <span className="notification-text">{notificationMessage}</span>
