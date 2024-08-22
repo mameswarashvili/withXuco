@@ -26,8 +26,8 @@ function App() {
       <Header cartItems={cartItems} removeItem={removeItem} />
       <div className="content">
         <Slider addToCart={addToCart} />
-        <RightSlider /> {/* Add the new component here */}
       </div>
+      <RightSlider /> {/* Add the new component here */}
       <div className={`notification ${notificationMessage ? 'show' : ''}`}>
         <span className="notification-text">{notificationMessage}</span>
         <button className="notification-close" onClick={() => setNotificationMessage('')}>×</button>
