@@ -4,6 +4,7 @@ import Slider from './Slider';
 import Notification from './Notification';
 import RightSlider from './RightSlider.js'; // Import the new component
 import './App.css';
+import Footer from './Footer.js';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -32,6 +33,7 @@ function App() {
         <span className="notification-text">{notificationMessage}</span>
         <button className="notification-close" onClick={() => setNotificationMessage('')}>×</button>
       </div>
+      <Footer />
     </div>
   );
 }
